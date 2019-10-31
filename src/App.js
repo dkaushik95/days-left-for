@@ -1,5 +1,4 @@
 /*global chrome*/
-/*eslint no-undef: "error"*/
 import React, { Component } from 'react'
 import './App.css'
 import Greeting from './Components/Greeting/Greeting'
@@ -20,7 +19,6 @@ export default class App extends Component {
     )
   }
   getTopVisits = () => {
-    // for production only
     chrome.topSites.get(topsites => {
       localStorage.setItem('topSites', JSON.stringify(topsites))
     })
