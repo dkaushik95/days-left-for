@@ -1,0 +1,54 @@
+.root {
+  display: flex;
+  /* width: 30%; */
+  /* margin: auto; */
+  align-items: center;
+  justify-content: center;
+  flex: 2;
+}
+
+.small {
+  display: flex;
+  justify-content: space-between;
+}
+.big {
+  user-select: none;
+  cursor: pointer;
+  font-size: 10rem;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.big:hover {
+  animation: bounce 0.4s ease-in-out;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  75% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.small > .weeks > .text {
+  font-size: 0.8rem;
+}
+
+.small > .weeks > .number {
+  font-size: 1.9rem;
+}
+
+.bigText {
+  font-size: 2.5rem;
+}

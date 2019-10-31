@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/*global chrome*/
+/*eslint no-undef: "error"*/
+import React, { Component } from 'react'
+import './App.css'
+import Greeting from './Components/Greeting/Greeting'
+import Days from './Components/Days/Days'
+import ChromeHistory from './Components/ChromeHistory/ChromeHistory'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  componentDidMount() {
+    this.getSearchHistory()
+    this.getTopVisits()
+  }
+  getSearchHistory = () => {
+    chrome.history.search(
+      { text: 'google.com/search', maxResults: 4 },
+      results => {
+        localStorage.setItem('history', JSON.stringify(results))
+      }
+    )
+  }
+  getTopVisits = () => {
+    // for production only
+    chrome.topSites.get(topsites => {
+      localStorage.setItem('topSites', JSON.stringify(topsites))
+    })
+  }
+  render() {
+    return (
+      <div className='app'>
+        <Greeting />
+        <Days />
+        <ChromeHistory />
+      </div>
+    )
+  }
 }
-
-export default App;

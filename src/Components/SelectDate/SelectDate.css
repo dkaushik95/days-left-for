@@ -1,0 +1,61 @@
+.date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: slideInRight 0.2s ease-in-out;
+}
+
+.date .button {
+  color: white;
+  width: 200px;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+}
+.date .button:hover {
+  animation: debounce 0.4s ease-in-out;
+}
+
+.slideOutRight {
+  animation: slideOutRight 0.2s ease-in-out;
+}
+
+@keyframes slideOutRight {
+  from {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes debounce {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.4);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

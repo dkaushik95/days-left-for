@@ -1,0 +1,23 @@
+input[type='text'] {
+  background: inherit;
+  color: inherit;
+  border: none;
+  font-size: 2.5rem;
+  font-weight: lighter;
+  transition: 0.2s;
+  width: auto;
+}
+
+input[type='text']:focus {
+  /* background: white; */
+  /* color: black; */
+  outline: none;
+  border-bottom: 3px solid white;
+}
+
+input[type='text']:hover {
+  /* background: white; */
+  /* color: black; */
+  background: white;
+  color: black;
+}

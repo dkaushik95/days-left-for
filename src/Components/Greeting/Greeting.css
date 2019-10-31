@@ -1,0 +1,17 @@
+h1 {
+  font-size: 2.5rem;
+  color: white;
+  background: transparent;
+  font-weight: lighter;
+}
+
+header {
+  /* margin-top: 40px; */
+}
+
+.greetingContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
