@@ -27,7 +27,7 @@ export default class ChromeHistory extends Component {
         title: item.title,
         img: `https://besticon-demo.herokuapp.com/icon?url=${
           pathArray[2]
-        }&size=32...64`
+        }&size=64`
       })
     })
 
