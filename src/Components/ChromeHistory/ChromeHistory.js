@@ -10,26 +10,31 @@ export default class ChromeHistory extends Component {
   componentDidMount() {
     let topsites = JSON.parse(localStorage.getItem('topSites'))
     let history = JSON.parse(localStorage.getItem('history'))
+    console.log(topsites, history)
 
     let searchHistory = []
-    history.forEach(item => {
-      searchHistory.push({
-        title: item.title.split('-')[0],
-        url: item.url
+    if (history) {
+      history.forEach(item => {
+        searchHistory.push({
+          title: item.title.split('-')[0],
+          url: item.url
+        })
       })
-    })
+    }
 
     let topVisits = []
-    topsites.forEach(item => {
-      let pathArray = item.url.split('/')
-      topVisits.push({
-        url: item.url,
-        title: item.title,
-        img: `https://besticon-demo.herokuapp.com/icon?url=${
-          pathArray[2]
-        }&size=64`
+    if (topsites) {
+      topsites.forEach(item => {
+        let pathArray = item.url.split('/')
+        topVisits.push({
+          url: item.url,
+          title: item.title,
+          img: `https://besticon-demo.herokuapp.com/icon?url=${
+            pathArray[2]
+          }&size=64`
+        })
       })
-    })
+    }
 
     this.setState({
       topVisits: topVisits ? topVisits : [],
@@ -48,7 +53,11 @@ export default class ChromeHistory extends Component {
   render() {
     return (
       <div className='footer'>
-        <p>Searches related to your history</p>
+        <p>
+          {this.state.topVisits.length === 0
+            ? 'Refresh to see history'
+            : 'Searches related to your history'}
+        </p>
         <div className='search'>
           {this.state.searchHistory.map((item, i) => (
             <a key={i} href={item.url}>
